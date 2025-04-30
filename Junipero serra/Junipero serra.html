@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="uTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Junipero Serra</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+        }
+        .sidebar {
+            position: fixed;
+            width: 150px;
+            background-color: #f4f4f4;
+            box-shadow: 1px 1px 5px rgba(0,0,0,0.1);
+            border-right: 1px solid #333;
+            height: calc(100vh - 40px);
+            padding: 20px;
+            margin-top: 40px; /* Adjusted for top menu */
+        }
+        .sidebar ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .sidebar ul li {
+            margin-bottom: 10px;
+        }
+        .sidebar ul li a {
+            text-decoration: none;
+            color: #4682B4;
+        }
+        .sidebar ul li a:hover {
+            color: #0303FF;
+        }
+        .content {
+            flex: 1;
+            padding: 20px;
+            margin-left: 170px; /* Adjusted for sidebar */
+            margin-top: 60px; /* Adjusted for fixed menu */
+            overflow: auto;
+        }
+        .content section {
+            margin-bottom: 40px;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        @media (max-width: 768px) {
+            .top-menu {
+                padding: 10px 0;
+            }
+            .sidebar {
+                position: static;
+                width: 100%;
+                height: auto;
+                margin: 0;
+                padding: 10px;
+            }
+            .content {
+                margin-left: 0;
+                margin-top: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="top-menu"></div>
+    <aside class="sidebar" aria-label="Section navigation">
+        <ul>
+            <li><a href="Home.html"><b>Home</b></a></li>
+            <li><a href="#earlylife"><b>Early Life</b></a></li>
+            <li><a href="#missions"><b>Missions:</b></a></li>
+            <li><a href="#sandiego"><i>San Diego de Alcalá</i></a></li>
+            <li><a href="#sancarlos"><i>San Carlos Borromeo de Carmelo</i></a></li>
+            <li><a href="#sanantonio"><i>San Antonio de Padua</i></a></li>
+            <li><a href="#sangabriel"><i>San Gabriel Arcángel</i></a></li>
+            <li><a href="#sanluis"><i>San Luis Obispo de Tolosa</i></a></li>
+            <li><a href="#sanfrancisco"><i>San Francisco de Asís</i></a></li>

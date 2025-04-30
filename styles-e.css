@@ -1,0 +1,64 @@
+:root{
+
+    --medium-green: #00ff95
+    
+}
+/* General body setup */
+body {
+    display: flex;
+    flex-direction: row; /* Default to row layout on larger screens */
+    margin: 0;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 18pt;
+    line-height: 40px;
+    font-weight: 1;
+    background-color: #f4f4f4;
+    padding-left: 200px;
+}
+
+iframe {
+    border: 0px;
+    min-height: 300px; /* Ensure iframe has enough space */
+
+}
+
+a:any-link {
+    color: blue;
+    text-decoration: none; /* Remove underline */
+}
+
+a:any-link:hover {
+    text-decoration: underline; /* Add underline on hover */
+}
+
+/* Navigation Bar */
+
+/* Main content */
+main {
+    padding: 20px;
+}
+
+/* Media query for mobile */
+@media screen and (max-width: 500px) {
+    body {
+        flex-direction: column; /* Stack content vertically */
+        padding-left: 0; /* Reset padding for mobile */
+    }
+
+    
+
+    main {
+        margin-left: 0; /* Reset margin for mobile */
+        padding: 10px;
+    }
+
+    iframe {
+        position: relative;
+        height: auto; /* Ensure iframe height adjusts well on mobile */
+        min-height: 200px;
+    }
+}
+h1, h2 {
+    margin-top: 20px;
+    margin-bottom: 10px;
+}

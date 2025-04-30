@@ -1,0 +1,22 @@
+a{
+    color: blue;
+}
+body{
+    margin: 0;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 18pt;
+    line-height: 40px;
+    font-weight: 1;
+    background-color: #f4f4f4;
+}
+.title h2 {
+    text-align: center;
+}
+.title {
+    background-color: #00ff95;
+    text-align: center;
+}
+.bfooter{
+   display: flex;
+   justify-content:space-around;
+}

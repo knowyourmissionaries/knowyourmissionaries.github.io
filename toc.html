@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="uTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-uA-Compatible" content="ie=edge">
+    <title id="title">knowyourmissionaries.org</title>
+    <link rel="icon" href="images/faveicon.ico">
+    <style>
+
+.leftsidebar{
+    position: fixed;
+    background-color: #61ffbd;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    left: 0;
+    top: 0;
+    border-right: solid 2px lightgray;
+    
+}
+    </style>
+    <script>
+        const missionaries = {
+            "SaintPatrick": "Saint Patrick - knowyourmissionaries.org",
+            "Dominic": "Saint Dominic - knowyourmissionaries.org",
+            "FrancisXavier": "Saint Francis Xavier - knowyourmissionaries.org",
+            "IgnatiusOfLoyola": "Saint Ignatius Of Loyola - knowyourmissionaries.org",
+            "JuniperoSerra": "Saint Junípero Serra - knowyourmissionaries.org"
+        };
+
+        const validPages = {
+            "SaintPatrick": "missionaries/SaintPatrick.html",
+            "Dominic": "missionaries/Dominic.html",
+            "FrancisXavier": "missionaries/FrancisXavier.html",
+            "IgnatiusOfLoyola": "missionaries/IgnatiusOfLoyola.html",
+            "JuniperoSerra": "missionaries/JuniperoSerra.html"
+        };
+
+        function updateTitle(newTitle) {
+            document.title = newTitle;
+            document.getElementById('title').textContent = newTitle;
+        }
+
+        // Function to handle both title and content loading based on hash
+        function handleHashChange() {
+            const hash = window.location.hash.replace('#', ''); // Get the hash without #
+            const iframe = document.querySelector('iframe');
+
+            if (missionaries[hash]) {
+                updateTitle(missionaries[hash]);
+                iframe.src = validPages[hash];
+            } else {
+                updateTitle('Know Your Missionaries');
+                iframe.src = 'error.html';
+            }
+        }
+
+        // Load the content and title when the page loads or when the hash changes
+        window.addEventListener('load', handleHashChange);
+        window.addEventListener('hashchange', handleHashChange);
+
+        // Function to handle the button click and toggle options
+        function showOptions() {
+            const list = document.getElementById("suggestions");
+
+            if (list.style.display === "block") {
+                // Hide the suggestions
+                list.style.display = "none";
+            } else {
+                // Show the suggestions
+                const suggestions = [
+                    { name: "Saint Patrick", link: "missionaries/SaintPatrick.html" },
+                    { name: "Saint Dominic", link: "missionaries/Dominic.html" },
+                    { name: "Saint Francis Xavier", link: "missionaries/FrancisXavier.html" },
+                    { name: "Saint Ignatius of Loyola", link: "missionaries/IgnatiusOfLoyola.html" },
+                    { name: "Saint Junípero Serra", link: "missionaries/JuniperoSerra.html" }
+                ];
+
+                list.innerHTML = '';  // Clear any previous content
+
+                suggestions.forEach((suggestion) => {
+                    const li = document.createElement("li");
+
+                    // Create an anchor tag for each suggestion
+                    const anchor = document.createElement("a");
+                    anchor.href = suggestion.link;
+                    anchor.target = "main_frame";  // Open the link in the iframe
+                    anchor.textContent = suggestion.name;
+
+                    // Append the anchor to the list item, and the list item to the list
+                    li.appendChild(anchor);
+                    list.appendChild(li);
+                });
+
+                list.style.display = "block";
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="leftsidebar">
+    <nav>
+        <a href="index.html"><img src="images/faveicon.ico" height="50" width="50"></a>
+        <ul>
+            <li><a href="#SaintPatrick">Saint Patrick</a></li>
+            <li><a href="#Dominic">Saint Dominic</a></li>
+            <li><a href="#FrancisXavier">Saint Francis Xavier</a></li>
+            <li><a href="#IgnatiusOfLoyola">Saint Ignatius of Loyola</a></li>
+            <li><a href="#JuniperoSerra">Saint Junípero Serra</a></li>
+        </ul>
+        <button onclick="showOptions()" title="Click to view suggested missionaries">You might be interested in...</button>
+        <ul id="suggestions" style="display: none;"></ul>
+    </nav>
+    </div>
+    <!-- Iframe to display the missionary pages -->
+    <iframe id="myIframe" name="main_frame" style="width: 100%; height: 600px; border: none;"></iframe>
+</body>
+</html>
