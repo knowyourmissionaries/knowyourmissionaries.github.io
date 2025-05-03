@@ -7,8 +7,8 @@
         {
             "type": "chrome",
             "request": "launch",
-            "name": "Open f.html",
-            "file": "c:\\users\\JosephGrothoff\\Desktop\\Joseph\\Javascript\\root\\f.html"
+            "name": "run and debug",
+            "file": "c:\\users\\JosephGrothoff\\Desktop\\Joseph\\Javascript\\root\\index.html"
         }
     ]
 }
